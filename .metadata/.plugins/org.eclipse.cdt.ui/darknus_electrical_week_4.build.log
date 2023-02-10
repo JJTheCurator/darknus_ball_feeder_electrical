@@ -1,0 +1,10 @@
+21:27:28 **** Build of configuration Debug for project darknus_electrical_week_4 ****
+make -j8 all 
+arm-none-eabi-size   darknus_electrical_week_4.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5128	     28	   1588	   6744	   1a58	darknus_electrical_week_4.elf
+Finished building: default.size.stdout
+ 
+
+21:27:28 Build Finished. 0 errors, 0 warnings. (took 398ms)
+
