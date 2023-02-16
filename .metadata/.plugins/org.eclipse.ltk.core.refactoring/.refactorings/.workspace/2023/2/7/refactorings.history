@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;ball_feeder_dc_motor/darknus_electrical_week_5_assignment Debug.launch&apos;" deleteContents="false" description="Delete resource &apos;ball_feeder_dc_motor/darknus_electrical_week_5_assignment Debug.launch&apos;" element1="/ball_feeder_dc_motor/darknus_electrical_week_5_assignment Debug.launch" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1676368116479"/>
+</session>

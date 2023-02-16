@@ -59,16 +59,24 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define ENCODER_A_Pin GPIO_PIN_12
-#define ENCODER_A_GPIO_Port GPIOB
-#define ENCODER_A_EXTI_IRQn EXTI15_10_IRQn
-#define ENCODER_B_Pin GPIO_PIN_13
-#define ENCODER_B_GPIO_Port GPIOB
-#define ENCODER_B_EXTI_IRQn EXTI15_10_IRQn
-#define MOTOR_1A_Pin GPIO_PIN_10
-#define MOTOR_1A_GPIO_Port GPIOA
-#define MOTOR_2A_Pin GPIO_PIN_11
-#define MOTOR_2A_GPIO_Port GPIOA
+#define PWM_SERVO_Pin GPIO_PIN_1
+#define PWM_SERVO_GPIO_Port GPIOA
+#define OUT_MOTOR_ENCODER_A_Pin GPIO_PIN_12
+#define OUT_MOTOR_ENCODER_A_GPIO_Port GPIOB
+#define OUT_MOTOR_ENCODER_A_EXTI_IRQn EXTI15_10_IRQn
+#define OUT_MOTOR_ENCODER_B_Pin GPIO_PIN_13
+#define OUT_MOTOR_ENCODER_B_GPIO_Port GPIOB
+#define OUT_MOTOR_ENCODER_B_EXTI_IRQn EXTI15_10_IRQn
+#define OUT_STEPPER_DIR_SIGNAL_Pin GPIO_PIN_14
+#define OUT_STEPPER_DIR_SIGNAL_GPIO_Port GPIOB
+#define OUT_STEPPER_PUL_SIGNAL_Pin GPIO_PIN_15
+#define OUT_STEPPER_PUL_SIGNAL_GPIO_Port GPIOB
+#define PWM_MOTOR_ENA_Pin GPIO_PIN_9
+#define PWM_MOTOR_ENA_GPIO_Port GPIOA
+#define PWM_MOTOR_1A_Pin GPIO_PIN_10
+#define PWM_MOTOR_1A_GPIO_Port GPIOA
+#define PWM_MOTOR_2A_Pin GPIO_PIN_11
+#define PWM_MOTOR_2A_GPIO_Port GPIOA
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */

@@ -55,7 +55,17 @@ static void MX_TIM2_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+void set_servo_degree(int degree)
+{
+	//degree with respect to the ...?
+	//PSC: 72-1
+	//ARR 20000-1
+	//if(degree > 40 || degree < -40)
+	//	return;
 
+	htim2.Instance->CCR2 = 450 + degree*1875/180;
+	return;
+}
 /* USER CODE END 0 */
 
 /**
@@ -102,8 +112,10 @@ int main(void)
 	//htim2.Instance->CCR2 = 500 + degree*2000/180;
 	//HAL_Delay(1000);
 	//htim2.Instance->CCR2 = 500;  // 1ms
+
+	set_servo_degree(90);
 	HAL_Delay(2000);
-    htim2.Instance->CCR2 = 500 + 90*2000/180;
+	set_servo_degree(180);
 	HAL_Delay(2000);
   }
   /* USER CODE END 3 */
