@@ -34,34 +34,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := darknus_electrical_week_4_assignment_1
+BUILD_ARTIFACT_NAME := darknus_electrical_week_4_assignment
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-darknus_electrical_week_4_assignment_1.elf \
+darknus_electrical_week_4_assignment.elf \
 
 MAP_FILES += \
-darknus_electrical_week_4_assignment_1.map \
+darknus_electrical_week_4_assignment.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-darknus_electrical_week_4_assignment_1.list \
+darknus_electrical_week_4_assignment.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: darknus_electrical_week_4_assignment_1.elf secondary-outputs
+main-build: darknus_electrical_week_4_assignment.elf secondary-outputs
 
 # Tool invocations
-darknus_electrical_week_4_assignment_1.elf darknus_electrical_week_4_assignment_1.map: $(OBJS) $(USER_OBJS) E:\SITE\Code\WorkSpace\STM32CubeIDE\darknus_electrical_week_4_assignment\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "darknus_electrical_week_4_assignment_1.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"E:\SITE\Code\WorkSpace\STM32CubeIDE\darknus_electrical_week_4_assignment\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="darknus_electrical_week_4_assignment_1.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+darknus_electrical_week_4_assignment.elf darknus_electrical_week_4_assignment.map: $(OBJS) $(USER_OBJS) E:\SITE\Code\WorkSpace\STM32CubeIDE\darknus_electrical_week_4_assignment\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "darknus_electrical_week_4_assignment.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"E:\SITE\Code\WorkSpace\STM32CubeIDE\darknus_electrical_week_4_assignment\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="darknus_electrical_week_4_assignment.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -70,14 +70,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-darknus_electrical_week_4_assignment_1.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "darknus_electrical_week_4_assignment_1.list"
+darknus_electrical_week_4_assignment.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "darknus_electrical_week_4_assignment.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) darknus_electrical_week_4_assignment_1.elf darknus_electrical_week_4_assignment_1.list darknus_electrical_week_4_assignment_1.map default.size.stdout
+	-$(RM) darknus_electrical_week_4_assignment.elf darknus_electrical_week_4_assignment.list darknus_electrical_week_4_assignment.map default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)

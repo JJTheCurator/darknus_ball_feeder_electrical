@@ -39,8 +39,6 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-I2C_HandleTypeDef hi2c1;
-
 TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim2;
 
@@ -58,14 +56,15 @@ int servo_degree = 0;
 //stepper
 int stepper_step = 0;
 
-//i2c
-static const uint8_t OPI_ADDR = 0x48 << 1; // Use 8-bit address
-static const uint8_t REG_I2C = 0x00;
+//limit switch
+int limit_switch = 0;
 
-HAL_StatusTypeDef ret;
-uint8_t buf[12];
-int16_t val;
-float temp_c;
+//serial
+
+//variables
+//HAL_StatusTypeDef ret;
+uint8_t tx_data[12];
+uint8_t rx_data[2];
 
 /* USER CODE END PV */
 
@@ -74,19 +73,25 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_TIM1_Init(void);
 static void MX_TIM2_Init(void);
-static void MX_I2C1_Init(void);
 static void MX_USART2_UART_Init(void);
 /* USER CODE BEGIN PFP */
 void HAL_UART_DMA_Callback()
+{
+	;
+}
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_PIN){
 
-	if(GPIO_PIN == OUT_MOTOR_ENCODER_A_Pin)
+	if(GPIO_PIN == IN_MOTOR_ENCODER_A_Pin)
 	{
 		motor_encoder_a_pos++;
 	}
-	else if(GPIO_PIN == OUT_MOTOR_ENCODER_B_Pin)
+	else if(GPIO_PIN == IN_MOTOR_ENCODER_B_Pin)
 	{
 		motor_encoder_b_pos++;
+	}
+	else if(GPIO_PIN == IN_LIMIT_SWITCH_Pin)
+	{
+		limit_switch = 1;
 	}
 }
 /* USER CODE END PFP */
@@ -95,7 +100,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_PIN){
 /* USER CODE BEGIN 0 */
 void set_motor_direction(int is_forward)
 {
-	if(is_clockwise)
+	if(is_forward)
 	{
 		htim1.Instance->CCR3 = htim1.Instance->ARR;
 		htim1.Instance->CCR4 = 0;
@@ -115,18 +120,18 @@ void set_motor_speed(int percentage)
 void set_stepper_direction(int is_clockwise)
 {
 	if(is_clockwise)
-		HAL_GPIO_WritePin(OUT_STEPPER_DIR_SIGNAL_GPIO_Port, OUT_STEPPER_DIR_SIGNAL_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(OUT_STEPPER_DIR_GPIO_Port, OUT_STEPPER_DIR_Pin, GPIO_PIN_SET);
 	else
-		HAL_GPIO_WritePin(OUT_SETPPER_DIR_SIGNAL_GPIO_Port, OUT_STEPPER_DIR_SIGNAL_Pin, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(OUT_STEPPER_DIR_GPIO_Port, OUT_STEPPER_DIR_Pin, GPIO_PIN_RESET);
 	return;
 }
 void set_stepper_step(int step)
 {
 	for(int i = 0; i < step; i++)
 	{
-		HAL_GPIO_WritePin(OUT_STEPPER_PUL_SIGNAL_GPIO_Port, OUT_STEPPER_PUL_SIGNAL_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(OUT_STEPPER_STEP_GPIO_Port, OUT_STEPPER_STEP_Pin, GPIO_PIN_SET);
 		HAL_Delay(1);
-		HAL_GPIO_WritePin(OUT_STEPPER_PUL_SIGNAL_GPIO_Port, OUT_STEPPER_PUL_SIGNAL_Pin, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(OUT_STEPPER_STEP_GPIO_Port, OUT_STEPPER_STEP_Pin, GPIO_PIN_RESET);
 		HAL_Delay(1);
 	}
 	return;
@@ -142,40 +147,24 @@ void set_servo_degree(int degree)
 	htim2.Instance->CCR2 = 450 + degree*1875/180;
 	return;
 }
-void i2c_read()
+
+void initialise()
 {
-	buf[0] = REG_I2C;
-	ret = HAL_I2C_Master_Transmit(&hi2c1, OPI_ADDR, buf, 1, HAL_MAX_DELAY);
-	if ( ret != HAL_OK ) {
-		strcpy((char*)buf, "Error Tx\r\n");
-	} else {
+	//stepper setup
+	HAL_GPIO_WritePin(OUT_STEPPER_EN_GPIO_Port, OUT_STEPPER_EN_Pin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(OUT_STEPPER_MS1_GPIO_Port, OUT_STEPPER_MS1_Pin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(OUT_STEPPER_MS2_GPIO_Port, OUT_STEPPER_MS2_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(OUT_STEPPER_MS3_GPIO_Port, OUT_STEPPER_MS3_Pin, GPIO_PIN_RESET);
 
-	  // Read 2 bytes from the temperature register
-	  ret = HAL_I2C_Master_Receive(&hi2c1, OPI_ADDR, buf, 2, HAL_MAX_DELAY);
-	  if ( ret != HAL_OK ) {
-		  strcpy((char*)buf, "Error Rx\r\n");
-	  } else {
+	HAL_GPIO_WritePin(OUT_STEPPER_DIR_GPIO_Port, OUT_STEPPER_DIR_Pin, GPIO_SET);
 
-	    //Combine the bytes
-	    //val = ((int16_t)buf[0] << 4) | (buf[1] >> 4);
-
-	    // Convert to 2's complement, since temperature can be negative
-	    //if ( val > 0x7FF ) {
-	    //  val |= 0xF000;
-	    //}
-
-	    // Convert to float temperature value (Celsius)
-	    //temp_c = val * 0.0625;
-	    // Convert temperature to decimal format
-	    //temp_c *= 100;
-	    //sprintf((char*)buf,
-	    //      "%u.%u C\r\n",
-	    //      ((unsigned int)temp_c / 100),
-	    //      ((unsigned int)temp_c % 100))
-		HAL_UART_Transmit(&huart2, buf, strlen((char*)buf), HAL_MAX_DELAY);
-	  }
-	return;
+	//serial communication
+	HAL_UART_Receive_IT(&huart2, rx_data, sizeof(rx_data));
+	HAL_UART_Receive_DMA(&huart2, rx_data, sizeof(rx_data));
+	return ;
 }
+
+
 /* USER CODE END 0 */
 
 /**
@@ -208,7 +197,6 @@ int main(void)
   MX_GPIO_Init();
   MX_TIM1_Init();
   MX_TIM2_Init();
-  MX_I2C1_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
   //motor enable
@@ -219,7 +207,6 @@ int main(void)
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_4);
   //servo motor
   HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_2);
-  //__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, 1000);
 
   /* USER CODE END 2 */
 
@@ -282,40 +269,6 @@ void SystemClock_Config(void)
 }
 
 /**
-  * @brief I2C1 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_I2C1_Init(void)
-{
-
-  /* USER CODE BEGIN I2C1_Init 0 */
-
-  /* USER CODE END I2C1_Init 0 */
-
-  /* USER CODE BEGIN I2C1_Init 1 */
-
-  /* USER CODE END I2C1_Init 1 */
-  hi2c1.Instance = I2C1;
-  hi2c1.Init.ClockSpeed = 100000;
-  hi2c1.Init.DutyCycle = I2C_DUTYCYCLE_2;
-  hi2c1.Init.OwnAddress1 = 0;
-  hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
-  hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
-  hi2c1.Init.OwnAddress2 = 0;
-  hi2c1.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
-  hi2c1.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
-  if (HAL_I2C_Init(&hi2c1) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN I2C1_Init 2 */
-
-  /* USER CODE END I2C1_Init 2 */
-
-}
-
-/**
   * @brief TIM1 Initialization Function
   * @param None
   * @retval None
@@ -368,6 +321,10 @@ static void MX_TIM1_Init(void)
   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
   sConfigOC.OCIdleState = TIM_OCIDLESTATE_RESET;
   sConfigOC.OCNIdleState = TIM_OCNIDLESTATE_RESET;
+  if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+  {
+    Error_Handler();
+  }
   if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_2) != HAL_OK)
   {
     Error_Handler();
@@ -495,19 +452,35 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, OUT_STEPPER_DIR_SIGNAL_Pin|OUT_STEPPER_PUL_SIGNAL_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(OUT_STEPPER_DIR_GPIO_Port, OUT_STEPPER_DIR_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : OUT_MOTOR_ENCODER_A_Pin OUT_MOTOR_ENCODER_B_Pin */
-  GPIO_InitStruct.Pin = OUT_MOTOR_ENCODER_A_Pin|OUT_MOTOR_ENCODER_B_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
-  GPIO_InitStruct.Pull = GPIO_PULLUP;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOB, OUT_STEPPER_MS3_Pin|OUT_STEPPER_MS2_Pin|OUT_STEPPER_MS1_Pin|OUT_STEPPER_EN_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : OUT_STEPPER_DIR_SIGNAL_Pin OUT_STEPPER_PUL_SIGNAL_Pin */
-  GPIO_InitStruct.Pin = OUT_STEPPER_DIR_SIGNAL_Pin|OUT_STEPPER_PUL_SIGNAL_Pin;
+  /*Configure GPIO pin : IN_LIMIT_SWITCH_Pin */
+  GPIO_InitStruct.Pin = IN_LIMIT_SWITCH_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(IN_LIMIT_SWITCH_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : OUT_STEPPER_DIR_Pin */
+  GPIO_InitStruct.Pin = OUT_STEPPER_DIR_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(OUT_STEPPER_DIR_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : OUT_STEPPER_MS3_Pin OUT_STEPPER_MS2_Pin OUT_STEPPER_MS1_Pin OUT_STEPPER_EN_Pin */
+  GPIO_InitStruct.Pin = OUT_STEPPER_MS3_Pin|OUT_STEPPER_MS2_Pin|OUT_STEPPER_MS1_Pin|OUT_STEPPER_EN_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : IN_MOTOR_ENCODER_A_Pin IN_MOTOR_ENCODER_B_Pin */
+  GPIO_InitStruct.Pin = IN_MOTOR_ENCODER_A_Pin|IN_MOTOR_ENCODER_B_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /* EXTI interrupt init*/
