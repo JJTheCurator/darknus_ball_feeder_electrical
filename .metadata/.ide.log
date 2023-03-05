@@ -17101,3 +17101,12 @@
 
 2023-03-05 15:56:26,367 [INFO] Activator:178 - !SESSION log4j initialized
 >>>>>>> ffc06553f6142658ec530d3bf0fe4927b47d05d6
+2023-03-05 16:11:49,973 [INFO] Activator:177 - 
+
+
+2023-03-05 16:11:49,976 [INFO] Activator:178 - !SESSION log4j initialized
+2023-03-05 16:12:26,522 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2023-03-05 16:12:26,524 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] SLF4J: Defaulting to no-operation (NOP) logger implementation
+2023-03-05 16:12:26,526 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2023-03-05 16:12:48,931 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] [Fatal Error] :4:2: The content of elements must consist of well-formed character data or markup.
+2023-03-05 16:12:48,932 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 

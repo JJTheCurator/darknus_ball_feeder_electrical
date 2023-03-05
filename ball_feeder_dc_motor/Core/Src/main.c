@@ -62,8 +62,10 @@ int total_stepper_step = 0;
 int limit_switch = 0;
 
 //control
-int release_ball = 0;
-int ball_count = 0;
+//updated by on_receive
+int is_releasing_balls = 0;
+//updated by release_balls
+int ball_count = 300;
 
 //serial
 
@@ -81,9 +83,10 @@ static void MX_TIM1_Init(void);
 static void MX_TIM2_Init(void);
 static void MX_USART2_UART_Init(void);
 void on_receive();
+void release_balls();
+void forward_kinematics(int x, int y);
 /* USER CODE BEGIN PFP */
-void HAL_UART_DMA_Callback()
-{
+void HAL_UART_DMA_Callback(){
 	;
 }
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_PIN){
@@ -110,8 +113,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-void set_motor_direction(int is_forward)
-{
+void set_motor_direction(int is_forward){
 	if(is_forward)
 	{
 		htim1.Instance->CCR3 = htim1.Instance->ARR;
@@ -124,21 +126,18 @@ void set_motor_direction(int is_forward)
 	}
 	return;
 }
-void set_motor_speed(int percentage)
-{
+void set_motor_speed(int percentage){
 	htim1.Instance->CCR2 = htim1.Instance->ARR * percentage;
 	return;
 }
-void set_stepper_direction(int is_clockwise)
-{
+void set_stepper_direction(int is_clockwise){
 	if(is_clockwise)
 		HAL_GPIO_WritePin(OUT_STEPPER_DIR_GPIO_Port, OUT_STEPPER_DIR_Pin, GPIO_PIN_SET);
 	else
 		HAL_GPIO_WritePin(OUT_STEPPER_DIR_GPIO_Port, OUT_STEPPER_DIR_Pin, GPIO_PIN_RESET);
 	return;
 }
-void set_stepper_step(int step)
-{
+void set_stepper_step(int step){
 	for(int i = 0; i < step; i++)
 	{
 		HAL_GPIO_WritePin(OUT_STEPPER_STEP_GPIO_Port, OUT_STEPPER_STEP_Pin, GPIO_PIN_SET);
@@ -149,8 +148,7 @@ void set_stepper_step(int step)
 	}
 	return;
 }
-void calibrate_stepper()
-{
+void calibrate_stepper(){
 	limit_switch = 0;
 	set_stepper_direction(0);
 	while(1){
@@ -172,8 +170,7 @@ void calibrate_servo(){
 	set_servo_degree(0);
 	return;
 }
-void set_servo_degree(int degree)
-{
+void set_servo_degree(int degree){
 	//degree with respect to the jumper wire count degree counterclockwise
 	//PSC: 72-1
 	//ARR 20000-1
@@ -185,31 +182,49 @@ void set_servo_degree(int degree)
 	return;
 }
 
-void on_receive()
-{
+void on_receive(){
 	if(rx_data[0] == -1 || rx_data[1] == -1)
 	{
 		return;
 	}
-	int degree = rx_data[0];
-	int distance = rx_data[1];
+	int x = rx_data[0];
+	int y = rx_data[1];
 
-	//
-	distance = 123;
-	degree = 1;
-
-	set_servo_degree(degree);
-	set_stepper_step(distance);
-	;
+	forward_kinematics(x, y);
 
 	rx_data[0] = -1;
 	rx_data[1] = -1;
 
-	release_ball = 1;
+	is_releasing_balls = 1;
+	release_ball();
 }
+void release_ball(){
+	unsigned long start = HAL_GetTick();
+	set_motor_speed(1);
+	while(1){
+		if(HAL_GetTick() - start < 7000){
+			continue;
+		}
+		else{
+			break;
+		}
+	}
+	ball_count -= 50;
+	is_releasing_balls = 0;
+	return;
+}
+void forward_kinematics(int x, int y){
+	//TODO: Mapping of x onto degree and y onto step
+	int degree = x;
+	int step = y;
 
-void initialise()
-{
+	set_servo_degree(degree);
+	set_stepper_step(step);
+	return;
+}
+void initialise(){
+	//variables initialised at the top
+
 	//stepper setup
 	HAL_GPIO_WritePin(OUT_STEPPER_EN_GPIO_Port, OUT_STEPPER_EN_Pin, GPIO_PIN_SET);
 	HAL_GPIO_WritePin(OUT_STEPPER_MS1_GPIO_Port, OUT_STEPPER_MS1_Pin, GPIO_PIN_SET);
@@ -225,6 +240,10 @@ void initialise()
 	//robotic arm setup
 	calibrate_stepper();
 	calibrate_servo();
+
+	//motor setup
+	set_motor_speed(0);
+	set_motor_direction(1);
 
 	return ;
 }
@@ -283,8 +302,9 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	if(release_ball == 0)
+	if(is_releasing_balls == 0)
 	{
+		HAL_Delay(10);
 		continue;
 	}
 
