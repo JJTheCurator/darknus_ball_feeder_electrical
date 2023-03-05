@@ -51,10 +51,12 @@ long motor_encoder_a_pos = 0;
 long motor_encoder_b_pos = 0;
 
 //servo
+//updated by set_servo_degree
 int servo_degree = 0;
 
 //stepper
-int stepper_step = 0;
+//updated by set_stepper_step
+int total_stepper_step = 0;
 
 //limit switch
 int limit_switch = 0;
@@ -133,7 +135,31 @@ void set_stepper_step(int step)
 		HAL_Delay(1);
 		HAL_GPIO_WritePin(OUT_STEPPER_STEP_GPIO_Port, OUT_STEPPER_STEP_Pin, GPIO_PIN_RESET);
 		HAL_Delay(1);
+		total_stepper_step += 1;
 	}
+	return;
+}
+void calibrate_stepper()
+{
+	limit_switch = 0;
+	set_stepper_direction(0);
+	while(1){
+		if(limit_switch == 0){
+			set_stepper_step(1);
+			HAL_Delay(10);
+		}
+		else if(limit_switch == 1){
+			break;
+		}
+	}
+	limit_switch = 0;
+	set_stepper_direction(1);
+	set_stepper_step(1);
+
+	return;
+}
+void calibrate_servo(){
+	set_servo_degree(0);
 	return;
 }
 void set_servo_degree(int degree)
@@ -145,6 +171,7 @@ void set_servo_degree(int degree)
 	//	return;
 
 	htim2.Instance->CCR2 = 450 + degree*1875/180;
+	servo_degree = degree;
 	return;
 }
 
@@ -161,6 +188,11 @@ void initialise()
 	//serial communication
 	HAL_UART_Receive_IT(&huart2, rx_data, sizeof(rx_data));
 	HAL_UART_Receive_DMA(&huart2, rx_data, sizeof(rx_data));
+
+	//robotic arm setup
+	calibrate_stepper();
+	calibrate_servo();
+
 	return ;
 }
 
@@ -208,6 +240,7 @@ int main(void)
   //servo motor
   HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_2);
 
+  initialise();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -220,11 +253,6 @@ int main(void)
 	htim1.Instance->CCR2 = 1000;
 
 	htim1.Instance->CCR3 = 0;
-	htim1.Instance->CCR4 = 1000;
-	HAL_Delay(2000);
-	htim1.Instance->CCR3 = 1000;
-	htim1.Instance->CCR4 = 0;
-	HAL_Delay(2000);
   }
   /* USER CODE END 3 */
 }
