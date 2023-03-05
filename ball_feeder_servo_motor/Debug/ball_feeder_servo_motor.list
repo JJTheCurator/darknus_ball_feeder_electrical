@@ -158,19 +158,19 @@ int main(void)
 	//HAL_Delay(1000);
 	//htim2.Instance->CCR2 = 500;  // 1ms
 
-	set_servo_degree(90);
- 80001a4:	205a      	movs	r0, #90	; 0x5a
+	set_servo_degree(0);
+ 80001a4:	2000      	movs	r0, #0
  80001a6:	f7ff ffd1 	bl	800014c <set_servo_degree>
 	HAL_Delay(2000);
  80001aa:	f44f 60fa 	mov.w	r0, #2000	; 0x7d0
  80001ae:	f000 fa73 	bl	8000698 <HAL_Delay>
-	set_servo_degree(180);
- 80001b2:	20b4      	movs	r0, #180	; 0xb4
+	set_servo_degree(0);
+ 80001b2:	2000      	movs	r0, #0
  80001b4:	f7ff ffca 	bl	800014c <set_servo_degree>
 	HAL_Delay(2000);
  80001b8:	f44f 60fa 	mov.w	r0, #2000	; 0x7d0
  80001bc:	f000 fa6c 	bl	8000698 <HAL_Delay>
-	set_servo_degree(90);
+	set_servo_degree(0);
  80001c0:	e7f0      	b.n	80001a4 <main+0x1c>
  80001c2:	bf00      	nop
  80001c4:	20000028 	.word	0x20000028

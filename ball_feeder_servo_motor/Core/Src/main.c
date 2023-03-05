@@ -113,9 +113,9 @@ int main(void)
 	//HAL_Delay(1000);
 	//htim2.Instance->CCR2 = 500;  // 1ms
 
-	set_servo_degree(90);
+	set_servo_degree(0);
 	HAL_Delay(2000);
-	set_servo_degree(180);
+	set_servo_degree(0);
 	HAL_Delay(2000);
   }
   /* USER CODE END 3 */
