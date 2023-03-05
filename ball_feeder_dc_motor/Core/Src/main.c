@@ -211,6 +211,7 @@ void release_ball(){
 	}
 	ball_count -= 50;
 	is_releasing_balls = 0;
+  set_motor_speed(0);
 	return;
 }
 void forward_kinematics(int x, int y){
