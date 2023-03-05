@@ -74,6 +74,7 @@ static void MX_GPIO_Init(void);
 static void MX_TIM1_Init(void);
 static void MX_TIM2_Init(void);
 static void MX_USART2_UART_Init(void);
+void on_receive();
 /* USER CODE BEGIN PFP */
 void HAL_UART_DMA_Callback()
 {
@@ -93,6 +94,14 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_PIN){
 	{
 		limit_switch = 1;
 	}
+<<<<<<<< HEAD:.metadata/.plugins/org.eclipse.core.resources/.history/25/40f11f112abb001d1dcfa14f8c41eabb
+========
+}
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+	on_receive();
+>>>>>>>> ffc06553f6142658ec530d3bf0fe4927b47d05d6:.metadata/.plugins/org.eclipse.core.resources/.history/f7/105891e848b3001d199aa0488dd2b53c
 }
 /* USER CODE END PFP */
 
@@ -171,6 +180,7 @@ void set_servo_degree(int degree)
 	return;
 }
 
+<<<<<<<< HEAD:.metadata/.plugins/org.eclipse.core.resources/.history/25/40f11f112abb001d1dcfa14f8c41eabb
 void initialise()
 {
 	//stepper setup
@@ -192,6 +202,38 @@ void initialise()
 	return ;
 }
 
+========
+void on_receive()
+{
+	int degree = rx_data[0];
+	int distance = rx_data[1];
+
+	//
+	distance = 123;
+	degree = 1;
+
+	set_servo_degree(degree);
+	set_stepper_step(distance);
+	;
+}
+
+void initialise()
+{
+	//stepper setup
+	HAL_GPIO_WritePin(OUT_STEPPER_EN_GPIO_Port, OUT_STEPPER_EN_Pin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(OUT_STEPPER_MS1_GPIO_Port, OUT_STEPPER_MS1_Pin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(OUT_STEPPER_MS2_GPIO_Port, OUT_STEPPER_MS2_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(OUT_STEPPER_MS3_GPIO_Port, OUT_STEPPER_MS3_Pin, GPIO_PIN_RESET);
+
+	HAL_GPIO_WritePin(OUT_STEPPER_DIR_GPIO_Port, OUT_STEPPER_DIR_Pin, GPIO_SET);
+
+	//serial communication
+	HAL_UART_Receive_IT(&huart2, rx_data, sizeof(rx_data));
+	HAL_UART_Receive_DMA(&huart2, rx_data, sizeof(rx_data));
+	return ;
+}
+
+>>>>>>>> ffc06553f6142658ec530d3bf0fe4927b47d05d6:.metadata/.plugins/org.eclipse.core.resources/.history/f7/105891e848b3001d199aa0488dd2b53c
 
 /* USER CODE END 0 */
 

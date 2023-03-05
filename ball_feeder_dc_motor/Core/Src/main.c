@@ -61,6 +61,10 @@ int total_stepper_step = 0;
 //limit switch
 int limit_switch = 0;
 
+//control
+int release_ball = 0;
+int ball_count = 0;
+
 //serial
 
 //variables
@@ -76,6 +80,7 @@ static void MX_GPIO_Init(void);
 static void MX_TIM1_Init(void);
 static void MX_TIM2_Init(void);
 static void MX_USART2_UART_Init(void);
+void on_receive();
 /* USER CODE BEGIN PFP */
 void HAL_UART_DMA_Callback()
 {
@@ -85,16 +90,21 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_PIN){
 
 	if(GPIO_PIN == IN_MOTOR_ENCODER_A_Pin)
 	{
-		motor_encoder_a_pos++;
+		motor_encoder_a_pos = HAL_GetTick();
 	}
 	else if(GPIO_PIN == IN_MOTOR_ENCODER_B_Pin)
 	{
-		motor_encoder_b_pos++;
+		motor_encoder_b_pos = HAL_GetTick();
 	}
 	else if(GPIO_PIN == IN_LIMIT_SWITCH_Pin)
 	{
 		limit_switch = 1;
 	}
+}
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+	on_receive();
 }
 /* USER CODE END PFP */
 
@@ -164,7 +174,7 @@ void calibrate_servo(){
 }
 void set_servo_degree(int degree)
 {
-	//degree with respect to the ...?
+	//degree with respect to the jumper wire count degree counterclockwise
 	//PSC: 72-1
 	//ARR 20000-1
 	//if(degree > 40 || degree < -40)
@@ -173,6 +183,29 @@ void set_servo_degree(int degree)
 	htim2.Instance->CCR2 = 450 + degree*1875/180;
 	servo_degree = degree;
 	return;
+}
+
+void on_receive()
+{
+	if(rx_data[0] == -1 || rx_data[1] == -1)
+	{
+		return;
+	}
+	int degree = rx_data[0];
+	int distance = rx_data[1];
+
+	//
+	distance = 123;
+	degree = 1;
+
+	set_servo_degree(degree);
+	set_stepper_step(distance);
+	;
+
+	rx_data[0] = -1;
+	rx_data[1] = -1;
+
+	release_ball = 1;
 }
 
 void initialise()
@@ -250,9 +283,17 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	htim1.Instance->CCR2 = 1000;
+	if(release_ball == 0)
+	{
+		continue;
+	}
 
-	htim1.Instance->CCR3 = 0;
+	if(HAL_GetTick() - motor_encoder_a_pos > 1500)
+	{
+		set_motor_direction(0);
+		HAL_Delay(1000);
+		set_motor_direction(1);
+	}
   }
   /* USER CODE END 3 */
 }
