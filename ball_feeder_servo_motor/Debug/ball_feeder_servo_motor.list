@@ -164,8 +164,8 @@ int main(void)
 	HAL_Delay(2000);
  80001aa:	f44f 60fa 	mov.w	r0, #2000	; 0x7d0
  80001ae:	f000 fa73 	bl	8000698 <HAL_Delay>
-	set_servo_degree(0);
- 80001b2:	2000      	movs	r0, #0
+	set_servo_degree(90);
+ 80001b2:	205a      	movs	r0, #90	; 0x5a
  80001b4:	f7ff ffca 	bl	800014c <set_servo_degree>
 	HAL_Delay(2000);
  80001b8:	f44f 60fa 	mov.w	r0, #2000	; 0x7d0

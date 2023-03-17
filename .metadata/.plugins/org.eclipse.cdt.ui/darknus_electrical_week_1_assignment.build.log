@@ -1,4 +1,4 @@
-17:23:55 **** Incremental Build of configuration Debug for project darknus_electrical_week_1_assignment ****
+13:18:32 **** Build of configuration Debug for project darknus_electrical_week_1_assignment ****
 make -j8 all 
 arm-none-eabi-size   darknus_electrical_week_1_assignment.elf 
    text	   data	    bss	    dec	    hex	filename
@@ -6,5 +6,5 @@ arm-none-eabi-size   darknus_electrical_week_1_assignment.elf
 Finished building: default.size.stdout
  
 
-17:23:56 Build Finished. 0 errors, 0 warnings. (took 277ms)
+13:18:32 Build Finished. 0 errors, 0 warnings. (took 344ms)
 

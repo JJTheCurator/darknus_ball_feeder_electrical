@@ -1324,3 +1324,652 @@ Finished building: default.size.stdout
  
 Finished building: ball_feeder_servo_motor.list
  
+13:12:24 **** Build of configuration Debug for project ball_feeder_dc_motor ****
+make -j8 all 
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_hal_msp.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f1xx_hal_msp.d" -MT"Core/Src/stm32f1xx_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_hal_msp.o"
+../Core/Src/main.c: In function 'set_stepper_step':
+../Core/Src/main.c:143:21: error: 'OUT_STEPPER_STEP_GPIO_Port' undeclared (first use in this function); did you mean 'OUT_STEPPER_EN_GPIO_Port'?
+  143 |   HAL_GPIO_WritePin(OUT_STEPPER_STEP_GPIO_Port, OUT_STEPPER_STEP_Pin, GPIO_PIN_SET);
+      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                     OUT_STEPPER_EN_GPIO_Port
+../Core/Src/main.c:143:21: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:143:49: error: 'OUT_STEPPER_STEP_Pin' undeclared (first use in this function); did you mean 'OUT_STEPPER_EN_Pin'?
+  143 |   HAL_GPIO_WritePin(OUT_STEPPER_STEP_GPIO_Port, OUT_STEPPER_STEP_Pin, GPIO_PIN_SET);
+      |                                                 ^~~~~~~~~~~~~~~~~~~~
+      |                                                 OUT_STEPPER_EN_Pin
+../Core/Src/main.c: In function 'calibrate_servo':
+../Core/Src/main.c:170:2: warning: implicit declaration of function 'set_servo_degree' [-Wimplicit-function-declaration]
+  170 |  set_servo_degree(0);
+      |  ^~~~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:173:6: warning: conflicting types for 'set_servo_degree'
+  173 | void set_servo_degree(int degree){
+      |      ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:170:2: note: previous implicit declaration of 'set_servo_degree' was here
+  170 |  set_servo_degree(0);
+      |  ^~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'on_receive':
+../Core/Src/main.c:199:2: warning: implicit declaration of function 'release_ball'; did you mean 'release_balls'? [-Wimplicit-function-declaration]
+  199 |  release_ball();
+      |  ^~~~~~~~~~~~
+      |  release_balls
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:201:6: warning: conflicting types for 'release_ball'
+  201 | void release_ball(){
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:199:2: note: previous implicit declaration of 'release_ball' was here
+  199 |  release_ball();
+      |  ^~~~~~~~~~~~
+../Core/Src/main.c: In function 'initialise':
+../Core/Src/main.c:235:68: error: 'GPIO_SET' undeclared (first use in this function); did you mean 'GPIOE'?
+  235 |  HAL_GPIO_WritePin(OUT_STEPPER_DIR_GPIO_Port, OUT_STEPPER_DIR_Pin, GPIO_SET);
+      |                                                                    ^~~~~~~~
+      |                                                                    GPIOE
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+13:16:13 **** Incremental Build of configuration Debug for project ball_feeder_dc_motor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
+arm-none-eabi-gcc "../Core/Src/system_stm32f1xx.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/system_stm32f1xx.d" -MT"Core/Src/system_stm32f1xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/system_stm32f1xx.o"
+../Core/Src/main.c: In function 'calibrate_servo':
+../Core/Src/main.c:170:2: warning: implicit declaration of function 'set_servo_degree' [-Wimplicit-function-declaration]
+  170 |  set_servo_degree(0);
+      |  ^~~~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:173:6: warning: conflicting types for 'set_servo_degree'
+  173 | void set_servo_degree(int degree){
+      |      ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:170:2: note: previous implicit declaration of 'set_servo_degree' was here
+  170 |  set_servo_degree(0);
+      |  ^~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'on_receive':
+../Core/Src/main.c:199:2: warning: implicit declaration of function 'release_ball'; did you mean 'release_balls'? [-Wimplicit-function-declaration]
+  199 |  release_ball();
+      |  ^~~~~~~~~~~~
+      |  release_balls
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:201:6: warning: conflicting types for 'release_ball'
+  201 | void release_ball(){
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:199:2: note: previous implicit declaration of 'release_ball' was here
+  199 |  release_ball();
+      |  ^~~~~~~~~~~~
+arm-none-eabi-gcc -o "ball_feeder_dc_motor.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\SITE\Code\WorkSpace\STM32CubeIDE\ball_feeder_dc_motor\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ball_feeder_dc_motor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ball_feeder_dc_motor.elf
+ 
+arm-none-eabi-size   ball_feeder_dc_motor.elf 
+arm-none-eabi-objdump -h -S  ball_feeder_dc_motor.elf  > "ball_feeder_dc_motor.list"
+   text	   data	    bss	    dec	    hex	filename
+  13744	     24	   1808	  15576	   3cd8	ball_feeder_dc_motor.elf
+Finished building: default.size.stdout
+ 
+Finished building: ball_feeder_dc_motor.list
+ 
+13:18:29 **** Incremental Build of configuration Debug for project ball_feeder_dc_motor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ball_feeder_dc_motor.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\SITE\Code\WorkSpace\STM32CubeIDE\ball_feeder_dc_motor\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ball_feeder_dc_motor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ball_feeder_dc_motor.elf
+ 
+arm-none-eabi-size   ball_feeder_dc_motor.elf 
+arm-none-eabi-objdump -h -S  ball_feeder_dc_motor.elf  > "ball_feeder_dc_motor.list"
+   text	   data	    bss	    dec	    hex	filename
+  13744	     24	   1808	  15576	   3cd8	ball_feeder_dc_motor.elf
+Finished building: default.size.stdout
+ 
+Finished building: ball_feeder_dc_motor.list
+ 
+13:18:31 **** Build of configuration Debug for project ball_feeder_servo_motor ****
+make -j8 all 
+arm-none-eabi-size   ball_feeder_servo_motor.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8156	     20	   1644	   9820	   265c	ball_feeder_servo_motor.elf
+Finished building: default.size.stdout
+ 
+13:18:31 **** Build of configuration Debug for project darknus_electrical_week_1 ****
+make -j8 all 
+arm-none-eabi-size   darknus_electrical_week_1.elf 
+   text	   data	    bss	    dec	    hex	filename
+   4684	     20	   1572	   6276	   1884	darknus_electrical_week_1.elf
+Finished building: default.size.stdout
+ 
+13:18:32 **** Build of configuration Debug for project darknus_electrical_week_1_assignment ****
+make -j8 all 
+arm-none-eabi-size   darknus_electrical_week_1_assignment.elf 
+   text	   data	    bss	    dec	    hex	filename
+   4540	     20	   1572	   6132	   17f4	darknus_electrical_week_1_assignment.elf
+Finished building: default.size.stdout
+ 
+13:18:32 **** Build of configuration Debug for project darknus_electrical_week_2 ****
+make -j8 all 
+arm-none-eabi-size   darknus_electrical_week_2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   4748	     20	   1572	   6340	   18c4	darknus_electrical_week_2.elf
+Finished building: default.size.stdout
+ 
+13:18:33 **** Build of configuration Debug for project darknus_electrical_week_3_assignment ****
+make -j8 all 
+arm-none-eabi-size   darknus_electrical_week_3_assignment.elf 
+   text	   data	    bss	    dec	    hex	filename
+   4908	     20	   1572	   6500	   1964	darknus_electrical_week_3_assignment.elf
+Finished building: default.size.stdout
+ 
+13:18:33 **** Build of configuration Debug for project darknus_electrical_week_4 ****
+make -j8 all 
+arm-none-eabi-size   darknus_electrical_week_4.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5128	     28	   1588	   6744	   1a58	darknus_electrical_week_4.elf
+Finished building: default.size.stdout
+ 
+13:18:34 **** Build of configuration Debug for project darknus_electrical_week_4_assignment ****
+make -j8 all 
+arm-none-eabi-size   darknus_electrical_week_4_assignment.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8384	     20	   1644	  10048	   2740	darknus_electrical_week_4_assignment.elf
+Finished building: default.size.stdout
+ 
+13:18:34 **** Build of configuration Debug for project darknus_electrical_week_4_assignment_2 ****
+make -j8 all 
+arm-none-eabi-size   darknus_electrical_week_4_assignment_2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8972	     28	   1660	  10660	   29a4	darknus_electrical_week_4_assignment_2.elf
+Finished building: default.size.stdout
+ 
+13:19:06 **** Incremental Build of configuration Debug for project ball_feeder_dc_motor ****
+make -j8 all 
+arm-none-eabi-size   ball_feeder_dc_motor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  13744	     24	   1808	  15576	   3cd8	ball_feeder_dc_motor.elf
+Finished building: default.size.stdout
+ 
+13:21:16 **** Incremental Build of configuration Debug for project ball_feeder_dc_motor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ball_feeder_dc_motor.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\SITE\Code\WorkSpace\STM32CubeIDE\ball_feeder_dc_motor\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ball_feeder_dc_motor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ball_feeder_dc_motor.elf
+ 
+arm-none-eabi-size   ball_feeder_dc_motor.elf 
+arm-none-eabi-objdump -h -S  ball_feeder_dc_motor.elf  > "ball_feeder_dc_motor.list"
+   text	   data	    bss	    dec	    hex	filename
+  13748	     24	   1808	  15580	   3cdc	ball_feeder_dc_motor.elf
+Finished building: default.size.stdout
+ 
+Finished building: ball_feeder_dc_motor.list
+ 
+13:23:17 **** Incremental Build of configuration Debug for project ball_feeder_dc_motor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ball_feeder_dc_motor.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\SITE\Code\WorkSpace\STM32CubeIDE\ball_feeder_dc_motor\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ball_feeder_dc_motor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ball_feeder_dc_motor.elf
+ 
+arm-none-eabi-size   ball_feeder_dc_motor.elf 
+arm-none-eabi-objdump -h -S  ball_feeder_dc_motor.elf  > "ball_feeder_dc_motor.list"
+   text	   data	    bss	    dec	    hex	filename
+  13768	     24	   1808	  15600	   3cf0	ball_feeder_dc_motor.elf
+Finished building: default.size.stdout
+ 
+Finished building: ball_feeder_dc_motor.list
+ 
+13:23:45 **** Incremental Build of configuration Debug for project ball_feeder_dc_motor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ball_feeder_dc_motor.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\SITE\Code\WorkSpace\STM32CubeIDE\ball_feeder_dc_motor\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ball_feeder_dc_motor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ball_feeder_dc_motor.elf
+ 
+arm-none-eabi-size   ball_feeder_dc_motor.elf 
+arm-none-eabi-objdump -h -S  ball_feeder_dc_motor.elf  > "ball_feeder_dc_motor.list"
+   text	   data	    bss	    dec	    hex	filename
+  12304	     24	   1808	  14136	   3738	ball_feeder_dc_motor.elf
+Finished building: default.size.stdout
+ 
+Finished building: ball_feeder_dc_motor.list
+ 
+13:24:08 **** Incremental Build of configuration Debug for project ball_feeder_dc_motor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ball_feeder_dc_motor.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\SITE\Code\WorkSpace\STM32CubeIDE\ball_feeder_dc_motor\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ball_feeder_dc_motor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ball_feeder_dc_motor.elf
+ 
+arm-none-eabi-size   ball_feeder_dc_motor.elf 
+arm-none-eabi-objdump -h -S  ball_feeder_dc_motor.elf  > "ball_feeder_dc_motor.list"
+   text	   data	    bss	    dec	    hex	filename
+  12304	     24	   1808	  14136	   3738	ball_feeder_dc_motor.elf
+Finished building: default.size.stdout
+ 
+Finished building: ball_feeder_dc_motor.list
+ 
+13:24:48 **** Incremental Build of configuration Debug for project ball_feeder_dc_motor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ball_feeder_dc_motor.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\SITE\Code\WorkSpace\STM32CubeIDE\ball_feeder_dc_motor\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ball_feeder_dc_motor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ball_feeder_dc_motor.elf
+ 
+arm-none-eabi-size   ball_feeder_dc_motor.elf 
+arm-none-eabi-objdump -h -S  ball_feeder_dc_motor.elf  > "ball_feeder_dc_motor.list"
+   text	   data	    bss	    dec	    hex	filename
+  12192	     24	   1808	  14024	   36c8	ball_feeder_dc_motor.elf
+Finished building: default.size.stdout
+ 
+Finished building: ball_feeder_dc_motor.list
+ 
+13:25:35 **** Incremental Build of configuration Debug for project ball_feeder_dc_motor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ball_feeder_dc_motor.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\SITE\Code\WorkSpace\STM32CubeIDE\ball_feeder_dc_motor\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ball_feeder_dc_motor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ball_feeder_dc_motor.elf
+ 
+arm-none-eabi-size   ball_feeder_dc_motor.elf 
+arm-none-eabi-objdump -h -S  ball_feeder_dc_motor.elf  > "ball_feeder_dc_motor.list"
+   text	   data	    bss	    dec	    hex	filename
+  12168	     24	   1808	  14000	   36b0	ball_feeder_dc_motor.elf
+Finished building: default.size.stdout
+ 
+Finished building: ball_feeder_dc_motor.list
+ 
+13:26:12 **** Incremental Build of configuration Debug for project ball_feeder_dc_motor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ball_feeder_dc_motor.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\SITE\Code\WorkSpace\STM32CubeIDE\ball_feeder_dc_motor\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ball_feeder_dc_motor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ball_feeder_dc_motor.elf
+ 
+arm-none-eabi-size   ball_feeder_dc_motor.elf 
+arm-none-eabi-objdump -h -S  ball_feeder_dc_motor.elf  > "ball_feeder_dc_motor.list"
+   text	   data	    bss	    dec	    hex	filename
+  12168	     24	   1808	  14000	   36b0	ball_feeder_dc_motor.elf
+Finished building: default.size.stdout
+ 
+Finished building: ball_feeder_dc_motor.list
+ 
+13:26:36 **** Incremental Build of configuration Debug for project ball_feeder_dc_motor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ball_feeder_dc_motor.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\SITE\Code\WorkSpace\STM32CubeIDE\ball_feeder_dc_motor\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ball_feeder_dc_motor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ball_feeder_dc_motor.elf
+ 
+arm-none-eabi-size   ball_feeder_dc_motor.elf 
+arm-none-eabi-objdump -h -S  ball_feeder_dc_motor.elf  > "ball_feeder_dc_motor.list"
+   text	   data	    bss	    dec	    hex	filename
+  12168	     24	   1808	  14000	   36b0	ball_feeder_dc_motor.elf
+Finished building: default.size.stdout
+ 
+Finished building: ball_feeder_dc_motor.list
+ 
+13:27:37 **** Incremental Build of configuration Debug for project ball_feeder_dc_motor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ball_feeder_dc_motor.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\SITE\Code\WorkSpace\STM32CubeIDE\ball_feeder_dc_motor\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ball_feeder_dc_motor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ball_feeder_dc_motor.elf
+ 
+arm-none-eabi-size   ball_feeder_dc_motor.elf 
+arm-none-eabi-objdump -h -S  ball_feeder_dc_motor.elf  > "ball_feeder_dc_motor.list"
+   text	   data	    bss	    dec	    hex	filename
+  12168	     24	   1808	  14000	   36b0	ball_feeder_dc_motor.elf
+Finished building: default.size.stdout
+ 
+Finished building: ball_feeder_dc_motor.list
+ 
+13:28:03 **** Incremental Build of configuration Debug for project ball_feeder_dc_motor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ball_feeder_dc_motor.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\SITE\Code\WorkSpace\STM32CubeIDE\ball_feeder_dc_motor\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ball_feeder_dc_motor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ball_feeder_dc_motor.elf
+ 
+arm-none-eabi-size   ball_feeder_dc_motor.elf 
+arm-none-eabi-objdump -h -S  ball_feeder_dc_motor.elf  > "ball_feeder_dc_motor.list"
+   text	   data	    bss	    dec	    hex	filename
+  12168	     24	   1808	  14000	   36b0	ball_feeder_dc_motor.elf
+Finished building: default.size.stdout
+ 
+Finished building: ball_feeder_dc_motor.list
+ 
+13:28:16 **** Incremental Build of configuration Debug for project ball_feeder_dc_motor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ball_feeder_dc_motor.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\SITE\Code\WorkSpace\STM32CubeIDE\ball_feeder_dc_motor\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ball_feeder_dc_motor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ball_feeder_dc_motor.elf
+ 
+arm-none-eabi-size   ball_feeder_dc_motor.elf 
+arm-none-eabi-objdump -h -S  ball_feeder_dc_motor.elf  > "ball_feeder_dc_motor.list"
+   text	   data	    bss	    dec	    hex	filename
+  12164	     24	   1808	  13996	   36ac	ball_feeder_dc_motor.elf
+Finished building: default.size.stdout
+ 
+Finished building: ball_feeder_dc_motor.list
+ 
+13:28:39 **** Incremental Build of configuration Debug for project ball_feeder_dc_motor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ball_feeder_dc_motor.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\SITE\Code\WorkSpace\STM32CubeIDE\ball_feeder_dc_motor\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ball_feeder_dc_motor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ball_feeder_dc_motor.elf
+ 
+arm-none-eabi-size   ball_feeder_dc_motor.elf 
+arm-none-eabi-objdump -h -S  ball_feeder_dc_motor.elf  > "ball_feeder_dc_motor.list"
+   text	   data	    bss	    dec	    hex	filename
+  12164	     24	   1808	  13996	   36ac	ball_feeder_dc_motor.elf
+Finished building: default.size.stdout
+ 
+Finished building: ball_feeder_dc_motor.list
+ 
+13:29:36 **** Incremental Build of configuration Debug for project ball_feeder_servo_motor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ball_feeder_servo_motor.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\SITE\Code\WorkSpace\STM32CubeIDE\ball_feeder_servo_motor\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ball_feeder_servo_motor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ball_feeder_servo_motor.elf
+ 
+arm-none-eabi-size   ball_feeder_servo_motor.elf 
+arm-none-eabi-objdump -h -S  ball_feeder_servo_motor.elf  > "ball_feeder_servo_motor.list"
+   text	   data	    bss	    dec	    hex	filename
+   8156	     20	   1644	   9820	   265c	ball_feeder_servo_motor.elf
+Finished building: default.size.stdout
+ 
+Finished building: ball_feeder_servo_motor.list
+ 
+13:30:23 **** Incremental Build of configuration Debug for project ball_feeder_dc_motor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ball_feeder_dc_motor.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\SITE\Code\WorkSpace\STM32CubeIDE\ball_feeder_dc_motor\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ball_feeder_dc_motor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ball_feeder_dc_motor.elf
+ 
+arm-none-eabi-size   ball_feeder_dc_motor.elf 
+arm-none-eabi-objdump -h -S  ball_feeder_dc_motor.elf  > "ball_feeder_dc_motor.list"
+   text	   data	    bss	    dec	    hex	filename
+  12164	     24	   1808	  13996	   36ac	ball_feeder_dc_motor.elf
+Finished building: default.size.stdout
+ 
+Finished building: ball_feeder_dc_motor.list
+ 
+13:31:08 **** Incremental Build of configuration Debug for project ball_feeder_dc_motor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ball_feeder_dc_motor.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\SITE\Code\WorkSpace\STM32CubeIDE\ball_feeder_dc_motor\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ball_feeder_dc_motor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ball_feeder_dc_motor.elf
+ 
+arm-none-eabi-size   ball_feeder_dc_motor.elf 
+arm-none-eabi-objdump -h -S  ball_feeder_dc_motor.elf  > "ball_feeder_dc_motor.list"
+   text	   data	    bss	    dec	    hex	filename
+  12164	     24	   1808	  13996	   36ac	ball_feeder_dc_motor.elf
+Finished building: default.size.stdout
+ 
+Finished building: ball_feeder_dc_motor.list
+ 
+13:34:25 **** Incremental Build of configuration Debug for project ball_feeder_dc_motor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ball_feeder_dc_motor.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\SITE\Code\WorkSpace\STM32CubeIDE\ball_feeder_dc_motor\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ball_feeder_dc_motor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ball_feeder_dc_motor.elf
+ 
+arm-none-eabi-size   ball_feeder_dc_motor.elf 
+arm-none-eabi-objdump -h -S  ball_feeder_dc_motor.elf  > "ball_feeder_dc_motor.list"
+   text	   data	    bss	    dec	    hex	filename
+  12164	     24	   1808	  13996	   36ac	ball_feeder_dc_motor.elf
+Finished building: default.size.stdout
+ 
+Finished building: ball_feeder_dc_motor.list
+ 
+13:34:54 **** Incremental Build of configuration Debug for project ball_feeder_dc_motor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ball_feeder_dc_motor.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\SITE\Code\WorkSpace\STM32CubeIDE\ball_feeder_dc_motor\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ball_feeder_dc_motor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ball_feeder_dc_motor.elf
+ 
+arm-none-eabi-size   ball_feeder_dc_motor.elf 
+arm-none-eabi-objdump -h -S  ball_feeder_dc_motor.elf  > "ball_feeder_dc_motor.list"
+   text	   data	    bss	    dec	    hex	filename
+  11848	     20	   1796	  13664	   3560	ball_feeder_dc_motor.elf
+Finished building: default.size.stdout
+ 
+Finished building: ball_feeder_dc_motor.list
+ 
+13:35:23 **** Incremental Build of configuration Debug for project ball_feeder_dc_motor ****
+make -j8 all 
+arm-none-eabi-size   ball_feeder_dc_motor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11848	     20	   1796	  13664	   3560	ball_feeder_dc_motor.elf
+Finished building: default.size.stdout
+ 
+13:36:31 **** Incremental Build of configuration Debug for project ball_feeder_dc_motor ****
+make -j8 all 
+arm-none-eabi-size   ball_feeder_dc_motor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11848	     20	   1796	  13664	   3560	ball_feeder_dc_motor.elf
+Finished building: default.size.stdout
+ 
+13:37:17 **** Incremental Build of configuration Debug for project ball_feeder_dc_motor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ball_feeder_dc_motor.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\SITE\Code\WorkSpace\STM32CubeIDE\ball_feeder_dc_motor\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ball_feeder_dc_motor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ball_feeder_dc_motor.elf
+ 
+arm-none-eabi-size   ball_feeder_dc_motor.elf 
+arm-none-eabi-objdump -h -S  ball_feeder_dc_motor.elf  > "ball_feeder_dc_motor.list"
+   text	   data	    bss	    dec	    hex	filename
+  13516	     20	   1804	  15340	   3bec	ball_feeder_dc_motor.elf
+Finished building: default.size.stdout
+ 
+Finished building: ball_feeder_dc_motor.list
+ 
+13:40:11 **** Incremental Build of configuration Debug for project ball_feeder_dc_motor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ball_feeder_dc_motor.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\SITE\Code\WorkSpace\STM32CubeIDE\ball_feeder_dc_motor\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ball_feeder_dc_motor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ball_feeder_dc_motor.elf
+ 
+arm-none-eabi-size   ball_feeder_dc_motor.elf 
+arm-none-eabi-objdump -h -S  ball_feeder_dc_motor.elf  > "ball_feeder_dc_motor.list"
+   text	   data	    bss	    dec	    hex	filename
+  11860	     20	   1796	  13676	   356c	ball_feeder_dc_motor.elf
+Finished building: default.size.stdout
+ 
+Finished building: ball_feeder_dc_motor.list
+ 
+13:40:31 **** Incremental Build of configuration Debug for project ball_feeder_dc_motor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ball_feeder_dc_motor.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\SITE\Code\WorkSpace\STM32CubeIDE\ball_feeder_dc_motor\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ball_feeder_dc_motor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ball_feeder_dc_motor.elf
+ 
+arm-none-eabi-size   ball_feeder_dc_motor.elf 
+arm-none-eabi-objdump -h -S  ball_feeder_dc_motor.elf  > "ball_feeder_dc_motor.list"
+   text	   data	    bss	    dec	    hex	filename
+  11860	     20	   1796	  13676	   356c	ball_feeder_dc_motor.elf
+Finished building: default.size.stdout
+ 
+Finished building: ball_feeder_dc_motor.list
+ 
+13:43:23 **** Incremental Build of configuration Debug for project ball_feeder_dc_motor ****
+make -j8 all 
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_hal_msp.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f1xx_hal_msp.d" -MT"Core/Src/stm32f1xx_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
+../Core/Src/main.c: In function 'on_receive':
+../Core/Src/main.c:209:2: warning: implicit declaration of function 'forward_kinematics' [-Wimplicit-function-declaration]
+  209 |  forward_kinematics(x, y);
+      |  ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:217:6: warning: conflicting types for 'forward_kinematics'
+  217 | void forward_kinematics(int x, int y){
+      |      ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:209:2: note: previous implicit declaration of 'forward_kinematics' was here
+  209 |  forward_kinematics(x, y);
+      |  ^~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc "../Core/Src/system_stm32f1xx.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/system_stm32f1xx.d" -MT"Core/Src/system_stm32f1xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/system_stm32f1xx.o"
+arm-none-eabi-gcc -o "ball_feeder_dc_motor.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\SITE\Code\WorkSpace\STM32CubeIDE\ball_feeder_dc_motor\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ball_feeder_dc_motor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ball_feeder_dc_motor.elf
+ 
+arm-none-eabi-size   ball_feeder_dc_motor.elf 
+arm-none-eabi-objdump -h -S  ball_feeder_dc_motor.elf  > "ball_feeder_dc_motor.list"
+   text	   data	    bss	    dec	    hex	filename
+  11840	     20	   1796	  13656	   3558	ball_feeder_dc_motor.elf
+Finished building: default.size.stdout
+ 
+Finished building: ball_feeder_dc_motor.list
+ 
+13:43:57 **** Incremental Build of configuration Debug for project ball_feeder_dc_motor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'on_receive':
+../Core/Src/main.c:209:2: warning: implicit declaration of function 'forward_kinematics' [-Wimplicit-function-declaration]
+  209 |  forward_kinematics(x, y);
+      |  ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:217:6: warning: conflicting types for 'forward_kinematics'
+  217 | void forward_kinematics(int x, int y){
+      |      ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:209:2: note: previous implicit declaration of 'forward_kinematics' was here
+  209 |  forward_kinematics(x, y);
+      |  ^~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "ball_feeder_dc_motor.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\SITE\Code\WorkSpace\STM32CubeIDE\ball_feeder_dc_motor\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ball_feeder_dc_motor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ball_feeder_dc_motor.elf
+ 
+arm-none-eabi-size   ball_feeder_dc_motor.elf 
+arm-none-eabi-objdump -h -S  ball_feeder_dc_motor.elf  > "ball_feeder_dc_motor.list"
+   text	   data	    bss	    dec	    hex	filename
+  11840	     20	   1796	  13656	   3558	ball_feeder_dc_motor.elf
+Finished building: default.size.stdout
+ 
+Finished building: ball_feeder_dc_motor.list
+ 
+13:50:18 **** Incremental Build of configuration Debug for project ball_feeder_dc_motor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:154:1: error: expected identifier or '(' before '}' token
+  154 | }
+      | ^
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+13:50:34 **** Incremental Build of configuration Debug for project ball_feeder_dc_motor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ball_feeder_dc_motor.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\SITE\Code\WorkSpace\STM32CubeIDE\ball_feeder_dc_motor\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ball_feeder_dc_motor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ball_feeder_dc_motor.elf
+ 
+arm-none-eabi-size   ball_feeder_dc_motor.elf 
+arm-none-eabi-objdump -h -S  ball_feeder_dc_motor.elf  > "ball_feeder_dc_motor.list"
+   text	   data	    bss	    dec	    hex	filename
+  11840	     20	   1796	  13656	   3558	ball_feeder_dc_motor.elf
+Finished building: default.size.stdout
+ 
+Finished building: ball_feeder_dc_motor.list
+ 
+13:51:47 **** Incremental Build of configuration Debug for project ball_feeder_dc_motor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ball_feeder_dc_motor.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\SITE\Code\WorkSpace\STM32CubeIDE\ball_feeder_dc_motor\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ball_feeder_dc_motor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ball_feeder_dc_motor.elf
+ 
+arm-none-eabi-size   ball_feeder_dc_motor.elf 
+arm-none-eabi-objdump -h -S  ball_feeder_dc_motor.elf  > "ball_feeder_dc_motor.list"
+   text	   data	    bss	    dec	    hex	filename
+  11840	     20	   1796	  13656	   3558	ball_feeder_dc_motor.elf
+Finished building: default.size.stdout
+ 
+Finished building: ball_feeder_dc_motor.list
+ 
+14:11:25 **** Incremental Build of configuration Debug for project ball_feeder_dc_motor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ball_feeder_dc_motor.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\SITE\Code\WorkSpace\STM32CubeIDE\ball_feeder_dc_motor\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ball_feeder_dc_motor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ball_feeder_dc_motor.elf
+ 
+arm-none-eabi-size   ball_feeder_dc_motor.elf 
+arm-none-eabi-objdump -h -S  ball_feeder_dc_motor.elf  > "ball_feeder_dc_motor.list"
+   text	   data	    bss	    dec	    hex	filename
+  11844	     20	   1796	  13660	   355c	ball_feeder_dc_motor.elf
+Finished building: default.size.stdout
+ 
+Finished building: ball_feeder_dc_motor.list
+ 
+14:12:33 **** Incremental Build of configuration Debug for project ball_feeder_dc_motor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ball_feeder_dc_motor.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\SITE\Code\WorkSpace\STM32CubeIDE\ball_feeder_dc_motor\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ball_feeder_dc_motor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ball_feeder_dc_motor.elf
+ 
+arm-none-eabi-size   ball_feeder_dc_motor.elf 
+arm-none-eabi-objdump -h -S  ball_feeder_dc_motor.elf  > "ball_feeder_dc_motor.list"
+   text	   data	    bss	    dec	    hex	filename
+  11888	     20	   1796	  13704	   3588	ball_feeder_dc_motor.elf
+Finished building: default.size.stdout
+ 
+Finished building: ball_feeder_dc_motor.list
+ 
+14:13:00 **** Incremental Build of configuration Debug for project ball_feeder_dc_motor ****
+make -j8 all 
+arm-none-eabi-size   ball_feeder_dc_motor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11888	     20	   1796	  13704	   3588	ball_feeder_dc_motor.elf
+Finished building: default.size.stdout
+ 
+14:14:23 **** Incremental Build of configuration Debug for project ball_feeder_dc_motor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ball_feeder_dc_motor.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\SITE\Code\WorkSpace\STM32CubeIDE\ball_feeder_dc_motor\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ball_feeder_dc_motor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ball_feeder_dc_motor.elf
+ 
+arm-none-eabi-size   ball_feeder_dc_motor.elf 
+arm-none-eabi-objdump -h -S  ball_feeder_dc_motor.elf  > "ball_feeder_dc_motor.list"
+   text	   data	    bss	    dec	    hex	filename
+  11904	     20	   1796	  13720	   3598	ball_feeder_dc_motor.elf
+Finished building: default.size.stdout
+ 
+Finished building: ball_feeder_dc_motor.list
+ 
+14:15:34 **** Incremental Build of configuration Debug for project ball_feeder_dc_motor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ball_feeder_dc_motor.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\SITE\Code\WorkSpace\STM32CubeIDE\ball_feeder_dc_motor\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ball_feeder_dc_motor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ball_feeder_dc_motor.elf
+ 
+arm-none-eabi-size   ball_feeder_dc_motor.elf 
+arm-none-eabi-objdump -h -S  ball_feeder_dc_motor.elf  > "ball_feeder_dc_motor.list"
+   text	   data	    bss	    dec	    hex	filename
+  11840	     20	   1796	  13656	   3558	ball_feeder_dc_motor.elf
+Finished building: default.size.stdout
+ 
+Finished building: ball_feeder_dc_motor.list
+ 
+14:16:59 **** Incremental Build of configuration Debug for project ball_feeder_dc_motor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ball_feeder_dc_motor.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\SITE\Code\WorkSpace\STM32CubeIDE\ball_feeder_dc_motor\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ball_feeder_dc_motor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ball_feeder_dc_motor.elf
+ 
+arm-none-eabi-size   ball_feeder_dc_motor.elf 
+arm-none-eabi-objdump -h -S  ball_feeder_dc_motor.elf  > "ball_feeder_dc_motor.list"
+   text	   data	    bss	    dec	    hex	filename
+  11896	     20	   1796	  13712	   3590	ball_feeder_dc_motor.elf
+Finished building: default.size.stdout
+ 
+Finished building: ball_feeder_dc_motor.list
+ 

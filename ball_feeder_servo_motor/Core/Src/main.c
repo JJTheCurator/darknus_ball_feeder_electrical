@@ -115,7 +115,7 @@ int main(void)
 
 	set_servo_degree(0);
 	HAL_Delay(2000);
-	set_servo_degree(0);
+	set_servo_degree(90);
 	HAL_Delay(2000);
   }
   /* USER CODE END 3 */

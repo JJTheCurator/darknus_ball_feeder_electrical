@@ -82,9 +82,6 @@ static void MX_GPIO_Init(void);
 static void MX_TIM1_Init(void);
 static void MX_TIM2_Init(void);
 static void MX_USART2_UART_Init(void);
-void on_receive();
-void release_balls();
-void forward_kinematics(int x, int y);
 /* USER CODE BEGIN PFP */
 void HAL_UART_DMA_Callback(){
 	;
@@ -107,7 +104,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_PIN){
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
-	on_receive();
+	//on_receive();
 }
 /* USER CODE END PFP */
 
@@ -141,11 +138,17 @@ void set_stepper_step(int step){
 	for(int i = 0; i < step; i++)
 	{
 		HAL_GPIO_WritePin(OUT_STEPPER_STEP_GPIO_Port, OUT_STEPPER_STEP_Pin, GPIO_PIN_SET);
-		HAL_Delay(1);
+		HAL_Delay(100);
 		HAL_GPIO_WritePin(OUT_STEPPER_STEP_GPIO_Port, OUT_STEPPER_STEP_Pin, GPIO_PIN_RESET);
-		HAL_Delay(1);
+		HAL_Delay(100);
 		total_stepper_step += 1;
 	}
+	return;
+}
+
+void set_stepper_step_pwm(int step)
+{
+
 	return;
 }
 void calibrate_stepper(){
@@ -166,10 +169,7 @@ void calibrate_stepper(){
 
 	return;
 }
-void calibrate_servo(){
-	set_servo_degree(0);
-	return;
-}
+
 void set_servo_degree(int degree){
 	//degree with respect to the jumper wire count degree counterclockwise
 	//PSC: 72-1
@@ -179,6 +179,38 @@ void set_servo_degree(int degree){
 
 	htim2.Instance->CCR2 = 450 + degree*1875/180;
 	servo_degree = degree;
+	return;
+}
+
+void calibrate_servo(){
+	set_servo_degree(0);
+	return;
+}
+
+void release_ball(){
+	unsigned long start = HAL_GetTick();
+	set_motor_speed(1);
+	while(1){
+		if(HAL_GetTick() - start < 7000){
+			continue;
+		}
+		else{
+			break;
+		}
+	}
+	ball_count -= 50;
+	is_releasing_balls = 0;
+  set_motor_speed(0);
+	return;
+}
+
+void forward_kinematics(int x, int y){
+	//TODO: Mapping of x onto degree and y onto step
+	int degree = x;
+	int step = y;
+
+	set_servo_degree(degree);
+	set_stepper_step(step);
 	return;
 }
 
@@ -198,31 +230,6 @@ void on_receive(){
 	is_releasing_balls = 1;
 	release_ball();
 }
-void release_ball(){
-	unsigned long start = HAL_GetTick();
-	set_motor_speed(1);
-	while(1){
-		if(HAL_GetTick() - start < 7000){
-			continue;
-		}
-		else{
-			break;
-		}
-	}
-	ball_count -= 50;
-	is_releasing_balls = 0;
-  set_motor_speed(0);
-	return;
-}
-void forward_kinematics(int x, int y){
-	//TODO: Mapping of x onto degree and y onto step
-	int degree = x;
-	int step = y;
-
-	set_servo_degree(degree);
-	set_stepper_step(step);
-	return;
-}
 void initialise(){
 	//variables initialised at the top
 
@@ -232,7 +239,7 @@ void initialise(){
 	HAL_GPIO_WritePin(OUT_STEPPER_MS2_GPIO_Port, OUT_STEPPER_MS2_Pin, GPIO_PIN_RESET);
 	HAL_GPIO_WritePin(OUT_STEPPER_MS3_GPIO_Port, OUT_STEPPER_MS3_Pin, GPIO_PIN_RESET);
 
-	HAL_GPIO_WritePin(OUT_STEPPER_DIR_GPIO_Port, OUT_STEPPER_DIR_Pin, GPIO_SET);
+	HAL_GPIO_WritePin(OUT_STEPPER_DIR_GPIO_Port, OUT_STEPPER_DIR_Pin, GPIO_PIN_SET);
 
 	//serial communication
 	HAL_UART_Receive_IT(&huart2, rx_data, sizeof(rx_data));
@@ -285,7 +292,7 @@ int main(void)
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
   //motor enable
-  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
   //motor input 1
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
   //motor input 2
@@ -293,7 +300,12 @@ int main(void)
   //servo motor
   HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_2);
 
-  initialise();
+  //initialise();
+  HAL_GPIO_WritePin(OUT_STEPPER_DIR_GPIO_Port, OUT_STEPPER_DIR_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(OUT_STEPPER_EN_GPIO_Port, OUT_STEPPER_EN_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(OUT_STEPPER_MS1_GPIO_Port, OUT_STEPPER_MS1_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(OUT_STEPPER_MS2_GPIO_Port, OUT_STEPPER_MS2_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(OUT_STEPPER_MS3_GPIO_Port, OUT_STEPPER_MS3_Pin, GPIO_PIN_SET);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -303,18 +315,22 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	if(is_releasing_balls == 0)
-	{
-		HAL_Delay(10);
-		continue;
-	}
+	set_stepper_step(100);
+	//set_servo_degree(0);
+	//HAL_Delay(2000);
+	//set_servo_degree(90);
+	//if(is_releasing_balls == 0)
+	//{
+	//	HAL_Delay(10);
+	//	continue;
+	//}
 
-	if(HAL_GetTick() - motor_encoder_a_pos > 1500)
-	{
-		set_motor_direction(0);
-		HAL_Delay(1000);
-		set_motor_direction(1);
-	}
+	//if(HAL_GetTick() - motor_encoder_a_pos > 1500)
+	//{
+		//set_motor_direction(0);
+		//HAL_Delay(1000);
+		//set_motor_direction(1);
+	//}
   }
   /* USER CODE END 3 */
 }
@@ -411,10 +427,6 @@ static void MX_TIM1_Init(void)
   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
   sConfigOC.OCIdleState = TIM_OCIDLESTATE_RESET;
   sConfigOC.OCNIdleState = TIM_OCNIDLESTATE_RESET;
-  if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
-  {
-    Error_Handler();
-  }
   if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_2) != HAL_OK)
   {
     Error_Handler();
@@ -542,7 +554,7 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(OUT_STEPPER_DIR_GPIO_Port, OUT_STEPPER_DIR_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, OUT_STEPPER_DIR_Pin|OUT_STEPPER_STEP_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, OUT_STEPPER_MS3_Pin|OUT_STEPPER_MS2_Pin|OUT_STEPPER_MS1_Pin|OUT_STEPPER_EN_Pin, GPIO_PIN_RESET);
@@ -553,12 +565,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(IN_LIMIT_SWITCH_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : OUT_STEPPER_DIR_Pin */
-  GPIO_InitStruct.Pin = OUT_STEPPER_DIR_Pin;
+  /*Configure GPIO pins : OUT_STEPPER_DIR_Pin OUT_STEPPER_STEP_Pin */
+  GPIO_InitStruct.Pin = OUT_STEPPER_DIR_Pin|OUT_STEPPER_STEP_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(OUT_STEPPER_DIR_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pins : OUT_STEPPER_MS3_Pin OUT_STEPPER_MS2_Pin OUT_STEPPER_MS1_Pin OUT_STEPPER_EN_Pin */
   GPIO_InitStruct.Pin = OUT_STEPPER_MS3_Pin|OUT_STEPPER_MS2_Pin|OUT_STEPPER_MS1_Pin|OUT_STEPPER_EN_Pin;
